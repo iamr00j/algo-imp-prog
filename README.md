@@ -1,7 +1,7 @@
 # algo-imp-prog
 comp sci module
 
-lab\n
+lab
 dua - I/O
 tiga - Arr && Str
 empat - Arr && Mem Mgmt
