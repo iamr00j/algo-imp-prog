@@ -1,0 +1,77 @@
+\documentclass{article}
+
+\title{COMP26120 Lab 13: Background}
+\author{Ru Jie Tham}
+
+\begin{document}
+\maketitle
+
+% PART 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The small-world hypothesis}
+\label{sec:small world}
+% Here give your statement of the small-world hypothesis and how you
+% are going to test it.
+The small world hypothesis tests the degrees of separation between people. This experiment surfaced from the
+examination of the average path length for social networks of people in the US. The idea of "six degrees of 
+separation" developed, whereby anyone is connected to anyone through six or fewer steps away. I think the idea
+of six degrees is actually shrinking, and the degrees of separation is existing only through people's random 
+acquaintaces, and not friendships.
+
+This hypothesis will be tested using the given social network data from Caltech and University of Oklahoma. The
+data will be represented as graphs - people as nodes. Random individuals will be picked to find the shortest path
+between the chosen individuals. To prove that there are less than six degrees, there should be individuals who are
+not connected to one another, or connected by more than five steps away. Graph search functions would be used to
+find the shortest path between nodes with heap functions 
+
+
+\section{Complexity Arguments}
+\label{sec:complexity}
+% Write down the complexity of Dijkstra's algorithm and of Floyd's algorithm.
+% Explain why, for these graphs, Dijkstra's algorithm is more efficient.
+Dijkstra's algorithm is a single-source shortest path algorithm. It computes a compact representation of all the
+shortest paths from a node to every other node, in the form of a rooted tree. 
+Floyd's algorithm is an all-pairs shortest path algorithm - it computes the shortest paths between every pair of
+nodes. 
+Time complexity of Dijkstra depends on the implementation; it can be O(N^2 + M), O(MlogN), or O(M + NlogN).
+Floyd runs in O(N^3) time.
+Since we need to find the shortest path from one person to another (not necessarily connected), it is more efficient to implement Dijkstra's
+algorithm.
+
+% PART 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Part 2 results}
+\label{sec:part2}
+% Give the results of part two experiments.
+A random number generator is used and the number 17 is used as the starting node for both
+social networks to test the small world hypothesis. In Caltech University, an approximate of 20%
+of the nodes are connected within a distance of 5 nodes. Most of the nodes are not reachable by
+node 17, such as node 14,21, and 28. In this test, it is obeserved that the nodes are either connected
+to the starting node within the distance of 5 or less, or they are not at all reachable.
+In the case of University of Oklahoma, there are also nodes that are not reachable from the source node 17,
+like node 16981 - 16991. Unlike Caltech University, there exist nodes with a distance of 6 from the source 
+node 17 in University of Oklahoma, like node XXX from node 17.
+From these tests, the social networks proved that the network is not at all small, hence the small world
+hypothesis is false. 
+
+% PART 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Part 3 complexity analysis}
+\label{sec:complexity3}
+% Give the complexity of the heuristic route finder.
+The maximum out-degree of the node is chosen as my heuristic method. This method runs in O(N*V), where
+N is the number of nodes in the graph and V is the number of out-degrees of the nodes.
+
+\section{Part 3 results}
+\label{sec:part3}
+% Give the results of part two experiments.
+This method is not accurate as compared to Dijkstra's shortest path algorithm. There are some errors,
+for instance, the distance of node 21 from node 17 is XX; however in the heuristic method it is said that
+the distance between both nodes is 3. It is also observed that the nodes are not reachable by node 17 with
+Dijkstra are also not reachable with the heuristic method. That said, some of the nodes that are not reachable
+by node 17 using heuristics are reachable with Dijkstra. For instance, the distance of node XXX from node 17 is X
+with Dijkstra, but the target node is not reachable with heuristics. Nevetherless, the heuristic method is always
+accurate when the distance between the source and the target is 1.
+
+
+\end{document}
